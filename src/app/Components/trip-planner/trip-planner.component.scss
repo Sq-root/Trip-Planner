@@ -10,8 +10,8 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-image: url("../../../assets/img/layout_a.jpg");
+    align-items: center;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -27,18 +27,9 @@
 
   &__form-group {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1.3rem;
-
-    // .btn-cust {
-    //   display: block;
-    //   cursor: pointer;
-    //   // width: 50px;
-    //   // height: 50px;
-    //   // border-radius: 50%;
-    //   font-size: 1rem;
-    //   text-align: center;
-    // }
   }
 }

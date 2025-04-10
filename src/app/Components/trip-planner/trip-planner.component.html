@@ -3,24 +3,29 @@
 
     <div class="trip__form col-6">
       <div class="trip__form-box">
-        <form class="trip__form-element" action="">
-          <div class="trip__form-group">
-            <div class="form-floating">
-              <input type="text" class="form-control" id="stpt" placeholder="Mumbai">
-              <label for="stpt">Starting Point</label>
-            </div>
-            <div class="form-floating">
-              <input type="text" class="form-control" id="enpt" placeholder="Delhi">
-              <label for="enpt">Ending Point</label>
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-cust">+</button>
+        <form [formGroup]="tripPlanForm" class="trip__form-element" action="">
+          <div formArrayName="tripPoints" class="trip__form-group">
+            <ng-container *ngFor="let item of tripPoints?.controls ;index as i">
+              <div formGroupName="{{ i }}" class="trip__inputbox d-flex gap-4">
+                <div class="form-floating">
+                  <input formControlName="stPoint" type="text" class="form-control" id="stpt" placeholder="Mumbai">
+                  <label for="stpt"> Starting Point</label>
+                </div>
+                <div class="form-floating">
+                  <input formControlName="endPoint" type="text" class="form-control" id="enpt" placeholder="Delhi">
+                  <label for="enpt">Ending Point</label>
+                </div>
+              </div>
+            </ng-container>
           </div>
         </form>
+        <button (click)="addTripPoint()" type="button" class="btn btn-success w-100 mt-4">Plan Trip</button>
       </div>
     </div>
 
     <div class="trip__graph col-6">
       <!-- Graph or visual content here -->
+      <app-empty-tripplan></app-empty-tripplan>
     </div>
 
   </div>

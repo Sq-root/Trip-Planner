@@ -1,0 +1,15 @@
+.empty_tripplan {
+  height: 100%;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    img {
+      width: 600px;
+      height: auto ;
+    }
+  }
+}
