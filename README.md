@@ -32,7 +32,7 @@ Each route is visualized dynamically using SVG with levels to avoid overlaps.
 
 ## 📸 Screenshot
 
-![Trip Planner Visual UI](./src/assets/img/op_img.png.png)
+![Trip Planner Visual UI](./src/assets/img/op_img.png)
 
 > 💡 _Trip Visual Representation_
 
