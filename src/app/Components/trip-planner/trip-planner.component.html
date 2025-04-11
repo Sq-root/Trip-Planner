@@ -19,13 +19,49 @@
             </ng-container>
           </div>
         </form>
-        <button (click)="addTripPoint()" type="button" class="btn btn-success w-100 mt-4">Plan Trip</button>
+        <button (click)="addTripPoint()" type="button" class="btn btn-outline-dark w-100 mt-4">Add Routes</button>
+        <button (click)="createTripRoutes()" type="button" class="btn btn-dark w-100 mt-2">Plan Trip</button>
       </div>
     </div>
 
     <div class="trip__graph col-6">
       <!-- Graph or visual content here -->
-      <app-empty-tripplan></app-empty-tripplan>
+      <ng-container *ngIf="tripRoutesGraph.length > 0 ; else noPlan">
+        <div class="trip-canvas">
+          <svg [attr.width]="svgWidth" height="300">
+            <!-- Arrow marker definition -->
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="black" />
+              </marker>
+            </defs>
+
+            <!-- Loop through each trip and draw a line -->
+            <ng-container *ngFor="let trip of tripRoutesGraph">
+
+              <!-- 1. Draw the trip line -->
+              <line [attr.x1]="cityX[trip.stPoint]" [attr.y1]="getY(trip.level)" [attr.x2]="cityX[trip.endPoint]"
+                [attr.y2]="getY(trip.level)" stroke-width="2"
+                [attr.marker-end]="trip.type === 'not-continued' ? 'url(#arrow)' : ''"
+                [attr.stroke]="trip.type === 'repeated' ? 'blue' : trip.type === 'continued' ? 'green' : 'red'" />
+
+              <!-- 2. Label stPoint City -->
+              <text [attr.x]="cityX[trip.stPoint] - 15" [attr.y]="getY(trip.level) - 10" font-size="12" fill="black">
+                {{ trip.stPoint.slice(0,3).toUpperCase() }}
+              </text>
+
+              <!-- 3. Label End City -->
+              <text [attr.x]="cityX[trip.endPoint] - 15" [attr.y]="getY(trip.level) - 10" font-size="12" fill="black">
+                {{ trip.endPoint.slice(0,3).toUpperCase() }}
+              </text>
+            </ng-container>
+          </svg>
+        </div>
+
+      </ng-container>
+      <ng-template #noPlan>
+        <app-empty-tripplan></app-empty-tripplan>
+      </ng-template>
     </div>
 
   </div>
