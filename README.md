@@ -1,27 +1,48 @@
-# TripPlanner
+# 🧭 Trip Planner Visualizer (Angular)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+This project is an interactive Angular application that allows users to input multiple trip routes and visualize them as lines between cities with custom rules. It supports:
 
-## Development server
+- **Continued trips** (e.g., Bangalore → Chennai → Ooty)
+- **Non-continued trips** (e.g., Bangalore → Chennai, Ooty → Bangalore)
+- **Repeated trips** (same route entered again)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Each route is visualized dynamically using SVG with levels to avoid overlaps.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## ✨ Features
 
-## Build
+- Dynamic form using Angular Reactive Forms
+- SVG visual rendering of trip routes
+- Greate User Experience
+- Responsive design and scroll support
+- Easy logic with readable trip classification
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## 📸 Screenshot
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Trip Planner Visual Form](./src/assets/img/tripform_UI.png)
 
-## Running end-to-end tests
+> 💡 _Form with Multiple Trip Planning_
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 📸 Screenshot
+
+![Trip Planner Visual UI](./src/assets/img/op_img.png.png)
+
+> 💡 _Trip Visual Representation_
+
+---
+
+## 🚀 How to Run
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/trip-planner-visualizer.git
+cd trip-planner-visualizer
+```
